@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -51,7 +52,7 @@ function ElegantShape({
                         "absolute inset-0 rounded-full",
                         "bg-gradient-to-r to-transparent",
                         gradient,
-                        "backdrop-blur-[2px] border-2 border-white/[0.15]",
+                        "border-2 border-white/[0.15]",
                         "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
                         "after:absolute after:inset-0 after:rounded-full",
                         "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.2),transparent_70%)]"
@@ -63,6 +64,17 @@ function ElegantShape({
 }
 
 function AmbientShapes() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth <= 768);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
+
+    if (isMobile) return null;
+
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
             <ElegantShape

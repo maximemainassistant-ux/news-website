@@ -15,23 +15,23 @@ if (typeof window !== "undefined") {
 const menuItems = [
     { label: "Home", href: "/", shape: "1" },
     { label: "Blog", href: "/blog", shape: "2" },
-    { label: "Politics", href: "/?category=Politics", shape: "3" },
-    { label: "Finance", href: "/?category=Finance", shape: "4" },
-    { label: "Tech", href: "/?category=Tech", shape: "5" },
-    { label: "Climate", href: "/?category=Climate", shape: "1" },
-    { label: "Well+Being", href: "/?category=Well+Being", shape: "2" },
-    { label: "Business", href: "/?category=Business", shape: "3" },
+    { label: "Politics", href: "/category/politics", shape: "3" },
+    { label: "Finance", href: "/category/finance", shape: "4" },
+    { label: "Tech", href: "/category/tech", shape: "5" },
+    { label: "Climate", href: "/category/climate", shape: "1" },
+    { label: "Well+Being", href: "/category/well-being", shape: "2" },
+    { label: "Business", href: "/category/business", shape: "3" },
 ];
 
 export function KineticNavigation() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState('dark');
 
     // Initialize theme from localStorage
     useEffect(() => {
         const saved = localStorage.getItem('theme');
-        const initial = saved || 'light';
+        const initial = saved || 'dark';
         setTheme(initial);
         document.documentElement.setAttribute('data-theme', initial);
     }, []);

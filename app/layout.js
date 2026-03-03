@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             __html: `
               (function() {
                 try {
-                  var t = localStorage.getItem('theme') || 'light';
+                  var t = localStorage.getItem('theme') || 'dark';
                   if (t === 'light') {
                     document.documentElement.setAttribute('data-theme', 'light');
                   } else if (t === 'dark') {

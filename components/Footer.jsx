@@ -62,7 +62,7 @@ export default function Footer() {
                         {categories.map((cat) => (
                             <Link
                                 key={cat.slug}
-                                href={`/?category=${cat.label}`}
+                                href={`/category/${cat.slug}`}
                                 className={styles.link}
                             >
                                 {cat.label}

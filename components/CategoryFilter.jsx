@@ -16,7 +16,7 @@ export default function CategoryFilter({ activeCategory }) {
             {categories.map((cat) => (
                 <Link
                     key={cat.slug}
-                    href={`/?category=${cat.label}`}
+                    href={`/category/${cat.slug}`}
                     className={`${styles.filterBtn} ${activeCategory === cat.label ? styles.filterBtnActive : ''}`}
                 >
                     {cat.label}
