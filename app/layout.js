@@ -1,23 +1,22 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'The Daily Brief — Breaking News, Politics, Business & More',
+  title: 'Geo Blog',
   description:
-    'The Daily Brief delivers the most important breaking news, in-depth reporting, and expert analysis on politics, business, technology, climate, and well-being.',
+    'Geo Blog delivers the most important news, reporting, and expert analysis on politics, business, technology, climate, and well-being.',
   keywords: [
     'news',
-    'breaking news',
+    'blog',
     'politics',
     'business',
     'technology',
     'climate',
     'well-being',
-    'finance',
   ],
   openGraph: {
-    title: 'The Daily Brief',
+    title: 'Geo Blog',
     description:
-      'Breaking news, in-depth reporting, and expert analysis.',
+      'News, in-depth reporting, and expert analysis.',
     type: 'website',
     locale: 'en_US',
   },
@@ -33,9 +32,11 @@ export default function RootLayout({ children }) {
             __html: `
               (function() {
                 try {
-                  var t = localStorage.getItem('theme');
+                  var t = localStorage.getItem('theme') || 'light';
                   if (t === 'light') {
                     document.documentElement.setAttribute('data-theme', 'light');
+                  } else if (t === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'dark');
                   }
                 } catch(e) {}
               })();

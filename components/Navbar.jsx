@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search, Menu, X, Moon, Sun } from 'lucide-react';
 import { getAllArticles } from '@/lib/articles';
 import { categories } from '@/lib/categories';
@@ -12,15 +13,14 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [breakingVisible, setBreakingVisible] = useState(true);
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState('light');
     const searchRef = useRef(null);
     const inputRef = useRef(null);
 
     // Initialize theme from localStorage or default to dark
     useEffect(() => {
         const saved = localStorage.getItem('theme');
-        const initial = saved || 'dark';
+        const initial = saved || 'light';
         setTheme(initial);
         document.documentElement.setAttribute('data-theme', initial);
     }, []);
@@ -100,21 +100,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* ── Breaking News Bar ── */}
-            {breakingVisible && (
-                <div className="breaking-bar">
-                    <strong>Breaking:</strong>
-                    Federal Reserve signals potential rate cuts amid cooling inflation data
-                    <button
-                        className="breaking-bar__close"
-                        onClick={() => setBreakingVisible(false)}
-                        aria-label="Dismiss breaking news"
-                    >
-                        ×
-                    </button>
-                </div>
-            )}
-
             {/* ── Top Toolbar ── */}
             <div className={styles.toolbar}>
                 <div className={`container ${styles.toolbarInner}`}>
@@ -147,9 +132,6 @@ export default function Navbar() {
                         <Link href="/" className="btn-primary" style={{ fontSize: '0.75rem', padding: '6px 18px' }}>
                             Subscribe
                         </Link>
-                        <Link href="/" className={styles.toolbarLink}>
-                            Sign In
-                        </Link>
                     </div>
                 </div>
             </div>
@@ -158,14 +140,15 @@ export default function Navbar() {
             <header className={styles.masthead}>
                 <div className={styles.mastheadDate}>{today}</div>
                 <Link href="/" className={styles.mastheadLogo}>
-                    The Daily Brief
+                    <Image src="/logo.png" alt="Geo Blog Logo" width={220} height={70} style={{ objectFit: 'contain' }} priority />
                 </Link>
-                <div className={styles.mastheadTagline}>Clarity in Every Headline</div>
             </header>
 
             {/* ── Category Navigation ── */}
             <nav className={styles.categoryNav} aria-label="Primary navigation">
                 <div className={`container ${styles.categoryNavInner}`}>
+                    <Link href="/" className={styles.categoryLink}>Home</Link>
+                    <Link href="/blog" className={styles.categoryLink}>Blog</Link>
                     {categories.map((cat) => (
                         <Link
                             key={cat.slug}
@@ -178,22 +161,35 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* ── Mobile Menu ── */}
+            {/* ── Side Drawer Menu ── */}
             {menuOpen && (
-                <div className={styles.mobileMenu}>
-                    <nav className={styles.mobileMenuNav}>
-                        {categories.map((cat) => (
-                            <Link
-                                key={cat.slug}
-                                href={`/?category=${cat.label}`}
-                                className={styles.mobileMenuLink}
-                                onClick={() => setMenuOpen(false)}
-                            >
-                                {cat.label}
-                            </Link>
-                        ))}
-                    </nav>
-                </div>
+                <>
+                    <div className={styles.drawerBackdrop} onClick={() => setMenuOpen(false)}></div>
+                    <div className={styles.sideDrawer}>
+                        <div className={styles.drawerHeader}>
+                            <Image src="/logo.png" alt="Geo Blog Logo" width={140} height={45} style={{ objectFit: 'contain' }} />
+                            <button className={styles.drawerClose} onClick={() => setMenuOpen(false)} aria-label="Close menu">
+                                <X size={24} />
+                            </button>
+                        </div>
+                        <nav className={styles.drawerNav}>
+                            <Link href="/" className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Home</Link>
+                            <Link href="/blog" className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Blog</Link>
+                            <div className={styles.drawerDivider}></div>
+                            <span className={styles.drawerSectionTitle}>Categories</span>
+                            {categories.map((cat) => (
+                                <Link
+                                    key={cat.slug}
+                                    href={`/?category=${cat.label}`}
+                                    className={styles.drawerLink}
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    {cat.label}
+                                </Link>
+                            ))}
+                        </nav>
+                    </div>
+                </>
             )}
 
             {/* ── Search Overlay ── */}

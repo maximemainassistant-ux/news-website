@@ -1,0 +1,303 @@
+/* ═══════════════════════════════════════════════════
+   Sterling Gate Kinetic Navigation — Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── Header ── */
+.site-header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--color-bg, #ffffff);
+    border-bottom: 1px solid var(--color-border, #e5e5e5);
+    transition: background 0.3s ease;
+}
+
+.header {
+    width: 100%;
+}
+
+.container.is--full {
+    max-width: 100%;
+    padding: 0 2em;
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.nav-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    text-decoration: none;
+    color: var(--color-text, #111);
+}
+
+.nav-logo-text {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text, #111);
+}
+
+.nav-row__right {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.nav-toggle-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-text {
+    font-family: var(--font-ui, sans-serif);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #111);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ── Menu Button ── */
+.nav-close-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text, #111);
+    padding: 0.5em 0;
+    overflow: hidden;
+}
+
+.menu-button-text {
+    overflow: hidden;
+    height: 1.5em;
+    position: relative;
+}
+
+.menu-button-text p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.p-large {
+    font-family: var(--font-ui, sans-serif);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.icon-wrap {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button-icon {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* ── Fullscreen Menu ── */
+.fullscreen-menu-container {
+    position: relative;
+    z-index: 999;
+}
+
+.nav-overlay-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+}
+
+.nav-overlay-wrapper[data-nav="open"] {
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+.menu-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(520px, 85vw);
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.menu-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.backdrop-layer {
+    position: absolute;
+    inset: 0;
+    background: var(--color-bg, #ffffff);
+}
+
+.backdrop-layer.first {
+    background: var(--color-bg-elevated, #f8f8f8);
+}
+
+.backdrop-layer.second {
+    background: var(--color-surface, #f0f0f0);
+}
+
+/* ── Menu Content ── */
+.menu-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 5em 2.5em 2.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.menu-list-item {
+    overflow: hidden;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    padding: 0.6em 0.5em;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: background 0.25s ease;
+}
+
+.nav-link:hover {
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.nav-link-text {
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text, #111);
+    margin: 0;
+    line-height: 1.3;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover .nav-link-text {
+    color: #6366f1;
+}
+
+.nav-link-hover-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(99, 102, 241, 0.05) 0%,
+            rgba(139, 92, 246, 0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.nav-link:hover .nav-link-hover-bg {
+    opacity: 1;
+}
+
+/* ── Ambient Shapes ── */
+.ambient-background-shapes {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.bg-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bg-shape.active {
+    opacity: 1;
+}
+
+.shape-element {
+    transform-origin: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .container.is--full {
+        padding: 0 1em;
+    }
+
+    .nav-row {
+        height: 56px;
+    }
+
+    .nav-logo-text {
+        font-size: 1.1rem;
+    }
+
+    .toggle-text {
+        display: none;
+    }
+
+    .menu-content {
+        width: 100vw;
+    }
+
+    .menu-content-wrapper {
+        padding: 4em 1.5em 2em;
+    }
+
+    .nav-link-text {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link-text {
+        font-size: 1.4rem;
+    }
+
+    .nav-link {
+        padding: 0.5em 0.25em;
+    }
+}

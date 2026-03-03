@@ -122,6 +122,14 @@
     margin-bottom: 0;
 }
 
+.error {
+    font-family: var(--font-ui);
+    font-size: var(--fs-sm);
+    color: #ef4444;
+    margin-top: var(--space-sm);
+    margin-bottom: 0;
+}
+
 /* Bottom bar */
 .bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);

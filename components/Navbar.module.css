@@ -182,36 +182,98 @@
     border-bottom-color: var(--color-accent);
 }
 
-/* ── Mobile Menu ── */
-.mobileMenu {
+/* ── Side Drawer ── */
+.drawerBackdrop {
     position: fixed;
     inset: 0;
-    top: 44px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 300ms ease;
+    backdrop-filter: blur(2px);
+}
+
+.sideDrawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
     background: var(--color-bg);
-    z-index: 98;
-    padding: var(--space-2xl) var(--space-xl);
-    animation: fadeIn 200ms ease;
+    z-index: 1001;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    animation: slideRight 300ms ease;
     overflow-y: auto;
 }
 
-.mobileMenuNav {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
-.mobileMenuLink {
+.drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-xl);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.drawerClose {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.drawerClose:hover {
+    color: var(--color-accent);
+}
+
+.drawerNav {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    gap: var(--space-md);
+}
+
+.drawerLink {
     font-family: var(--font-ui);
     font-size: var(--fs-lg);
     font-weight: 700;
     color: var(--color-text);
-    padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--color-border-light);
     text-decoration: none;
+    transition: color var(--transition-fast);
 }
 
-.mobileMenuLink:hover {
+.drawerLink:hover {
     color: var(--color-accent);
+}
+
+.drawerDivider {
+    height: 1px;
+    background: var(--color-border-light);
+    margin: var(--space-sm) 0;
+}
+
+.drawerSectionTitle {
+    font-family: var(--font-ui);
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-sm);
 }
 
 /* ── Search Overlay ── */
@@ -331,7 +393,5 @@
 }
 
 @media (min-width: 769px) {
-    .mobileMenu {
-        display: none;
-    }
+    /* Kept intentionally empty to ensure drawer works on desktop */
 }
