@@ -52,6 +52,26 @@
     gap: 1.5em;
 }
 
+/* ── Theme Toggle ── */
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: none;
+    border: 1px solid var(--color-border, #e0e0e0);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--color-text, #111);
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--color-surface, #f0f0f0);
+    border-color: var(--color-text-muted, #999);
+}
+
 .nav-toggle-label {
     cursor: pointer;
     user-select: none;
