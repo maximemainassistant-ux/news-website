@@ -34,7 +34,7 @@ export default function ArticleCard({ article, index = 0 }) {
             </Link>
 
             <div className={styles.content}>
-                <span className="category-badge" data-category={article.category.toLowerCase()}>{article.category}</span>
+                <span className="category-badge" data-category={(article.category || 'general').toLowerCase()}>{article.category || 'General'}</span>
 
                 <h3 className={styles.title}>
                     <Link href={`/news/${article.slug}`}>{article.title}</Link>

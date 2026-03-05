@@ -39,9 +39,9 @@ export default function Navbar() {
             const q = searchQuery.toLowerCase();
             const results = articles.filter(
                 (a) =>
-                    a.title.toLowerCase().includes(q) ||
-                    a.excerpt.toLowerCase().includes(q) ||
-                    a.category.toLowerCase().includes(q)
+                    a.title?.toLowerCase().includes(q) ||
+                    a.excerpt?.toLowerCase().includes(q) ||
+                    a.category?.toLowerCase().includes(q)
             );
             setSearchResults(results.slice(0, 5));
         } else {

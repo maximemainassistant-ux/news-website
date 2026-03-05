@@ -296,7 +296,7 @@ export default async function ArticlePage({ params }) {
                                                 )}
                                                 <div className={styles.relatedContent}>
                                                     <span
-                                                        className={`category-badge ${r.category.toLowerCase()}`}
+                                                        className={`category-badge ${(r.category || 'general').toLowerCase()}`}
                                                         data-category={getCategorySlug(r.category)}
                                                     >
                                                         {r.category}

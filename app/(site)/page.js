@@ -34,7 +34,7 @@ export default async function HomePage({ searchParams }) {
             <div className={styles.featuredGrid}>
               {/* Left: headline + excerpt */}
               <div className={styles.featuredContent}>
-                <span className="category-badge" data-category={featured.category.toLowerCase()}>{featured.category}</span>
+                <span className="category-badge" data-category={(featured.category || 'general').toLowerCase()}>{featured.category || 'General'}</span>
                 <h1 className={styles.featuredTitle}>
                   <Link href={`/news/${featured.slug}`}>{featured.title}</Link>
                 </h1>
@@ -73,7 +73,7 @@ export default async function HomePage({ searchParams }) {
                         href={`/news/${article.slug}`}
                         className={styles.sidebarItem}
                       >
-                        <span className="category-badge" data-category={article.category.toLowerCase()}>{article.category}</span>
+                        <span className="category-badge" data-category={(article.category || 'general').toLowerCase()}>{article.category || 'General'}</span>
                         <span className={styles.sidebarItemTitle}>{article.title}</span>
                       </Link>
                     ))}
