@@ -32,13 +32,13 @@ export default async function HomePage({ searchParams }) {
         <section className={styles.featured}>
           <div className="container">
             <div className={styles.featuredGrid}>
-              {/* Left: headline + excerpt */}
+              {/* Left: headline + summary */}
               <div className={styles.featuredContent}>
                 <span className="category-badge" data-category={(featured.category || 'general').toLowerCase()}>{featured.category || 'General'}</span>
                 <h1 className={styles.featuredTitle}>
                   <Link href={`/news/${featured.slug}`}>{featured.title}</Link>
                 </h1>
-                <p className={styles.featuredExcerpt}>{featured.excerpt}</p>
+                <p className={styles.featuredExcerpt}>{featured.summary}</p>
                 <div className={styles.featuredMeta}>
                   <span>By <strong>{featured.author}</strong></span>
                   <span className={styles.metaDot}>·</span>

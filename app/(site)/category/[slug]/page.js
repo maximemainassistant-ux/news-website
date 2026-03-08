@@ -74,7 +74,7 @@ export default async function CategoryPage({ params }) {
                                 <div className={styles.cardContent}>
                                     <span className={styles.cardCategory}>{article.category}</span>
                                     <h3 className={styles.cardTitle}>{article.title}</h3>
-                                    <p className={styles.cardExcerpt}>{article.excerpt}</p>
+                                    <p className={styles.cardExcerpt}>{article.summary}</p>
                                     <div className={styles.cardMeta}>
                                         <span>{article.author}</span>
                                         <span className={styles.cardDot}>·</span>

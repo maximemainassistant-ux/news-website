@@ -140,7 +140,7 @@ export default async function ArticlePage({ params }) {
     const isTechOrDataHeavy = article.category === 'Tech' && layout === 'data-heavy';
     const isPoliticsOrFinance = ['Politics', 'Finance'].includes(article.category);
     const showKeyTakeaways = isPoliticsOrFinance || layout === 'analysis';
-    const showPrimarySources = isPoliticsOrFinance || layout === 'analysis';
+    const showSources = isPoliticsOrFinance || layout === 'analysis';
 
     // Build JSON-LD
     const imageUrl = article.image
@@ -244,8 +244,8 @@ export default async function ArticlePage({ params }) {
                     )}
 
                     {/* Primary Sources — Politics/Finance/Analysis layout */}
-                    {showPrimarySources && (
-                        <PrimarySource sources={article.primarySources} />
+                    {showSources && (
+                        <PrimarySource sources={article.sources} />
                     )}
 
                     {/* Article Footer */}

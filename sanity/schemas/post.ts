@@ -88,8 +88,8 @@ export default defineType({
             type: 'string',
         }),
         defineField({
-            name: 'excerpt',
-            title: 'Excerpt',
+            name: 'summary',
+            title: 'Summary',
             type: 'text',
             rows: 3,
             description: 'Short summary shown on article cards.',
@@ -137,8 +137,8 @@ export default defineType({
             description: 'Bullet-point takeaways displayed in a callout box (Politics/Finance/Analysis posts).',
         }),
         defineField({
-            name: 'primarySources',
-            title: 'Primary Sources',
+            name: 'sources',
+            title: 'Sources',
             type: 'array',
             of: [
                 {
@@ -169,7 +169,7 @@ export default defineType({
                 },
             ],
             fieldset: 'analysis',
-            description: 'Cite your primary sources for credibility (E-E-A-T).',
+            description: 'Cite your sources for credibility (E-E-A-T).',
         }),
 
         // ── Body ──

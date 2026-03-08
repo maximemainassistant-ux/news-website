@@ -40,7 +40,7 @@ export default function ArticleCard({ article, index = 0 }) {
                     <Link href={`/news/${article.slug}`}>{article.title}</Link>
                 </h3>
 
-                <p className={styles.excerpt}>{article.excerpt}</p>
+                <p className={styles.excerpt}>{article.summary}</p>
 
                 <div className={styles.meta}>
                     <span>By <strong>{article.author}</strong></span>
