@@ -51,3 +51,18 @@ agents.md
 
 # OS
 Thumbs.db
+
+# Workspace extras
+.openclaw/
+memory/
+vector-store/
+client_secret.json
+AGENTS.md
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
+gemini-output.json
+skills/
+whisper.cpp/
