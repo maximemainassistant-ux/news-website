@@ -13,41 +13,48 @@ const policySections = [
     {
         heading: "Data We Collect",
         anchor: "data-collection",
-        body:
-            "We collect what visitors explicitly provide (comments, newsletter sign-ups), what their browser shares (user agent, IP anonymized), and what our analytics partners capture (scroll depth, session length). We never sell personal information and only hold what we need to operate the site and serve ads that are relevant.",
+        body: "We collect data to provide a better experience. This includes information visitors explicitly provide such as comments, newsletter sign-ups, and contact forms. We also collect data shared by browsers (user agent, IP anonymized) and data captured by analytics partners (scroll depth, session length) via analytics tags, cookies, and ad identifiers. We never sell personal information and only hold what we need to operate the site and serve relevant ads. We are preparing to monetize via ads and partners, but no sensitive data is ever sold.",
         highlights: [
             "Consent is requested before any non-essential cookies fire.",
             "Aggregated usage data helps us optimize content and ads.",
+            "Information is gathered from comments, newsletters, and contact forms."
         ],
     },
     {
-        heading: "Cookies & Tracking",
+        heading: "Third-Party Services",
+        anchor: "third-party-services",
+        body: "We integrate with third-party services to enhance our site functionality and prepare for monetization. These include Google Analytics for usage tracking, and we are preparing to use Google AdSense or other ad partners and affiliate networks to display relevant advertisements. These partners may use their own cookies and ad identifiers.",
+        highlights: [
+            "We use Google Analytics to understand site traffic.",
+            "We partner with ad networks like Google AdSense to serve ads."
+        ],
+    },
+    {
+        heading: "Cookies & Tracking Options",
         anchor: "cookies-tracking",
-        body:
-            "We use strictly necessary cookies for login/status persistence, optional preference cookies (e.g., theme), and advertising cookies managed through Google Ads. Visitors can change cookie settings via the cookie banner, and we provide a link to disable non-essential cookies in browsers that support Do Not Track.",
+        body: "We use strictly necessary cookies for login and status persistence, optional preference cookies (e.g., theme), and advertising cookies managed through partners like Google Ads. Visitors can change cookie settings via the cookie banner at any time. We also provide instructions to disable non-essential cookies in browsers that support Do Not Track. You can opt out of tracking or marketing communications by adjusting your preferences or unsubscribing via the links provided in our emails.",
         highlights: [
-            "Google Ads only serves personalized creative with consent.",
+            "Ads only serve personalized creative with your consent.",
             "Cookie banner outlines how to opt out at any time.",
+            "Clear opt-out for marketing communications."
         ],
     },
     {
-        heading: "How Ads Are Handled",
-        anchor: "ads",
-        body:
-            "Our partnership with Google Ads ensures that creatives respect Google’s policies. Ads are placed in non-intrusive zones (top leaderboard, between sections, and helpful CTAs) so the reading experience stays immersive. We routinely audit for policy compliance, and any automated ads that might violate thresholds are replaced immediately.",
+        heading: "Your Data Rights",
+        anchor: "data-rights",
+        body: "You have full control over your personal data. You have the right to request access to, correction of, deletion of, and portability of your personal data. You also have the right to object to processing and to withdraw your consent at any time. In the unlikely event of a data breach, we will provide prompt notices as required by law.",
         highlights: [
-            "Ad placement respects mobile viewports with responsive slots.",
-            "Automated monitoring pages flag potentially disallowed creatives.",
+            "Rights to access, correction, deletion, portability, and objection.",
+            "Right to withdraw consent at any time.",
+            "Prompt breach notices."
         ],
     },
     {
-        heading: "Legal & Compliance Notes",
-        anchor: "compliance",
-        body:
-            "We follow Google’s privacy-centric implementation guidance and maintain records of data-sharing partners. Visitors from the EU can request data access or removal by emailing our privacy contact. If regulations evolve, we refresh this document and the cookie banner within two weeks.",
+        heading: "Contact Us",
+        anchor: "contact",
+        body: "If you have any privacy-related questions, requests regarding your data rights, or need assistance opting out, please reach out to us at our dedicated privacy contact point.",
         highlights: [
-            "EU Data Subject Requests handled within 30 days.",
-            "Cookies and data retention policies are reviewed quarterly.",
+            "Contact point for privacy questions: privacy@article-ops.example"
         ],
     },
 ];

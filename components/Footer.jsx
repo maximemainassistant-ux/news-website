@@ -107,8 +107,9 @@ export default function Footer() {
             </div>
 
             <div className={styles.bottom}>
-                <div className="container">
+                <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <p>© {new Date().getFullYear()} Geo Blog. All rights reserved.</p>
+                    <Link href="/privacy-policy" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</Link>
                 </div>
             </div>
         </footer>

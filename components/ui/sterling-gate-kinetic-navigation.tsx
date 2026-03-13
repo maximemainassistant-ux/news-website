@@ -21,6 +21,7 @@ const menuItems = [
     { label: "Climate", href: "/category/climate", shape: "1" },
     { label: "Well+Being", href: "/category/well-being", shape: "2" },
     { label: "Business", href: "/category/business", shape: "3" },
+    { label: "Privacy Policy", href: "/privacy-policy", shape: "4" },
 ];
 
 export function KineticNavigation() {
