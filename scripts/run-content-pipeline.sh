@@ -37,8 +37,10 @@ orchestrator_log() {
 }
 
 orchestrator_log "Assigning tasks to SEO, Asset, and Writer teams with deadline ${TASK_DEADLINE}."
-orchestrator_log "Creating feature branch $BRANCH_NAME"
-git checkout -b "$BRANCH_NAME"
+# Ensure on main branch and up to date
+orchestrator_log "Checking out main and ensuring up to date"
+git checkout main
+git pull origin main
 
 orchestrator_log "Scheduling SEO & Asset agents"
 "$WORKSPACE/scripts/seo-master.sh"
@@ -111,10 +113,14 @@ if git diff --cached --quiet; then
 fi
 git commit -m "$COMMIT_MESSAGE"
 
-orchestrator_log "Pushing branch"
-git push origin "$BRANCH_NAME"
+orchestrator_log "Committing article to main"
+git add "$LATEST_ARTICLE"
+if git diff --cached --quiet; then
+  orchestrator_log "No new article to commit; exiting gracefully."
+  exit 0
+fi
+git commit -m "$COMMIT_MESSAGE"
+orchestrator_log "Pushing to main"
+git push origin main
 
-orchestrator_log "Creating PR"
-gh pr create --title "$PR_TITLE" --body "$PR_BODY"
-
-orchestrator_log "Pipeline complete. Reference the PR link from gh output."
+orchestrator_log "Pipeline complete. Article committed to main and pushed."
