@@ -106,8 +106,8 @@ orchestrator_log "Committing article"
 git add "$LATEST_ARTICLE"
 # Only commit if there are staged changes
 if git diff --cached --quiet; then
-  orchestrator_log "No new article changes to commit; aborting."
-  exit 1
+  orchestrator_log "No new article changes to commit; exiting gracefully."
+  exit 0
 fi
 git commit -m "$COMMIT_MESSAGE"
 
