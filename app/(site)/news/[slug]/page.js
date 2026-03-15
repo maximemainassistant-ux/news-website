@@ -18,6 +18,13 @@ import ComparisonTable from '@/components/blocks/ComparisonTable';
 import ProductSpec from '@/components/blocks/ProductSpec';
 import styles from './page.module.css';
 
+// ── Static export: pre-render all articles at build time ──
+export async function generateStaticParams() {
+    const { getAllArticles } = await import('@/lib/articles');
+    const articles = await getAllArticles();
+    return articles.map((article) => ({ slug: article.slug }));
+}
+
 // ── Dynamic SEO metadata ──
 export async function generateMetadata({ params }) {
     const resolvedParams = await params;

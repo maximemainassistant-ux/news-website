@@ -18,17 +18,20 @@ export default function Footer() {
         setErrorMsg('');
 
         try {
-            const res = await fetch('/api/subscribe', {
+            const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_MAILERLITE_API_KEY}`,
+                },
                 body: JSON.stringify({ email }),
             });
 
-            const data = await res.json();
-
             if (!res.ok) {
+                const data = await res.json().catch(() => ({}));
                 setStatus('error');
-                setErrorMsg(data.error || 'Something went wrong.');
+                setErrorMsg((data.errors && Object.values(data.errors).flat().join(', ')) || 'Something went wrong.');
                 return;
             }
 
