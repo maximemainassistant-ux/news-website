@@ -8,22 +8,19 @@ import AdSlot from '@/components/AdSlot';
 import CategoryFilter from '@/components/CategoryFilter';
 import styles from './page.module.css';
 
-export default async function HomePage({ searchParams }) {
-  const resolvedParams = await searchParams;
-  const activeCategory = resolvedParams?.category || 'All';
-
+export default async function HomePage() {
   const featured = await getFeaturedArticle();
-  const rawArticles = activeCategory === 'All'
-    ? await getAllArticles()
-    : await getArticlesByCategory(activeCategory);
+  const rawArticles = await getAllArticles();
 
   const allArticles = featured
     ? rawArticles.filter((a) => a.slug !== featured.slug)
     : rawArticles;
 
   const latestArticles = featured
-    ? (await getAllArticles()).filter((a) => a.slug !== featured.slug)
-    : await getAllArticles();
+    ? rawArticles.filter((a) => a.slug !== featured.slug)
+    : rawArticles;
+
+  const activeCategory = 'All';
 
   return (
     <>
