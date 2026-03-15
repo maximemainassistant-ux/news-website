@@ -1,13 +1,10 @@
-'use client';
+import StudioClient from './StudioClient';
 
-import { NextStudio } from 'next-sanity/studio';
-import config from '../../../sanity.config';
-
-// Allow static export by providing empty params for the optional catch-all route
+// Pre-render /studio as a single static page for the static export
 export function generateStaticParams() {
     return [{}];
 }
 
 export default function StudioPage() {
-    return <NextStudio config={config} />;
+    return <StudioClient />;
 }
