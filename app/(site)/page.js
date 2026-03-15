@@ -46,7 +46,7 @@ export default async function HomePage() {
               {/* Center: large image */}
               <div className={styles.featuredImageWrap}>
                 <Link href={`/news/${featured.slug}`}>
-                  {featured.image ? (
+                  {featured.image?.asset ? (
                     <img
                       src={urlFor(featured.image).width(1200).height(675).url()}
                       alt={featured.imageAlt || featured.title}

@@ -35,7 +35,7 @@ export async function generateMetadata({ params }) {
     }
 
     // Attach image URL for OG
-    if (article.image) {
+    if (article.image?.asset) {
         article.imageUrl = urlFor(article.image).width(1200).height(675).url();
     }
 
@@ -150,7 +150,7 @@ export default async function ArticlePage({ params }) {
     const showSources = isPoliticsOrFinance || layout === 'analysis';
 
     // Build JSON-LD
-    const imageUrl = article.image
+    const imageUrl = article.image?.asset
         ? urlFor(article.image).width(1200).height(675).url()
         : null;
     const articleJsonLd = getArticleJsonLd({ ...article, imageUrl });
@@ -215,7 +215,7 @@ export default async function ArticlePage({ params }) {
             {/* Hero Image */}
             <div className={styles.heroImage}>
                 <div className="container">
-                    {article.image ? (
+                    {article.image?.asset ? (
                         <img
                             src={urlFor(article.image).width(1200).height(675).url()}
                             alt={article.imageAlt || article.title}
@@ -289,7 +289,7 @@ export default async function ArticlePage({ params }) {
                                                 href={`/news/${r.slug}`}
                                                 className={styles.relatedItem}
                                             >
-                                                {r.image ? (
+                                                {r.image?.asset ? (
                                                     <img
                                                         src={urlFor(r.image).width(200).height(120).url()}
                                                         alt={r.imageAlt || r.title}

@@ -9,7 +9,7 @@ export default function ArticleCard({ article, index = 0 }) {
         year: 'numeric',
     });
 
-    const imageUrl = article.image
+    const imageUrl = article.image?.asset
         ? urlFor(article.image).width(800).height(500).url()
         : null;
 

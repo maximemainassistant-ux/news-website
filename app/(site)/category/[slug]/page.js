@@ -56,7 +56,7 @@ export default async function CategoryPage({ params }) {
                                 style={{ animationDelay: `${index * 0.06}s` }}
                             >
                                 <div className={styles.cardImageWrap}>
-                                    {article.image ? (
+                                    {article.image?.asset ? (
                                         <img
                                             src={urlFor(article.image).width(600).height(600).url()}
                                             alt={article.imageAlt || article.title}
