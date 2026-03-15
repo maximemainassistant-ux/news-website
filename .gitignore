@@ -66,3 +66,7 @@ USER.md
 gemini-output.json
 skills/
 whisper.cpp/
+
+# Auto-generated briefs and temp files
+/drafts/briefs
+/tmp
