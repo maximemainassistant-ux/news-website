@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint --config .eslintrc.json . --ext .js,.jsx,.ts,.tsx",
     "publish-privacy-policy": "node scripts/publish-privacy-policy.js"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
     "@eslint/eslintrc": "^3.3.5",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.57.0",
-    "eslint": "^10.0.3",
+    "eslint": "^9.39.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "typescript": "5.9.3"
