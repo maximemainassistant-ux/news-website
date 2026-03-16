@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --config .eslintrc.cjs app components lib scripts sanity source --ext .js,.jsx,.ts,.tsx",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --config .eslintrc.cjs app components lib scripts sanity --ext .js,.jsx,.ts,.tsx",
     "publish-privacy-policy": "node scripts/publish-privacy-policy.js"
   },
   "dependencies": {
