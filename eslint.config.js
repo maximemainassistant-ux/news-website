@@ -10,7 +10,6 @@ const compat = new FlatCompat({
   recommendedConfig: 'eslint:recommended'
 });
 const sharedConfigs = compat.extends(
-  'eslint:recommended',
   'plugin:react/recommended',
   'plugin:@typescript-eslint/recommended'
 );
