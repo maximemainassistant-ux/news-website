@@ -1,6 +1,9 @@
 /**
- * ESLint configuration migrated to eslint.config.js (ESLint v9+ format)
+ * ESLint configuration migrated to eslint.config.js (ESLint v9+ flat config format)
  */
+import reactPlugin from 'eslint-plugin-react';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+
 export default [
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
@@ -13,17 +16,19 @@ export default [
       }
     },
     plugins: {
-      react: 'eslint-plugin-react',
-      '@typescript-eslint': '@typescript-eslint/eslint-plugin'
+      react: reactPlugin,
+      '@typescript-eslint': tsPlugin
     },
-    settings: { react: { version: 'detect' } },
+    settings: {
+      react: { version: 'detect' }
+    },
     extends: [
       'eslint:recommended',
       'plugin:react/recommended',
       'plugin:@typescript-eslint/recommended'
     ],
     rules: {
-      // project-specific rules can go here
+      // project-specific rules go here
     }
   }
 ];
