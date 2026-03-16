@@ -1,15 +1,16 @@
 /**
  * ESLint configuration migrated to eslint.config.js (ESLint v9+ flat config format)
  */
-import eslintRecommendedConfig from 'eslint/conf/eslint-recommended';
+import { FlatCompat } from '@eslint/eslintrc';
 import reactPlugin from 'eslint-plugin-react';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
-const sharedConfigs = [
-  eslintRecommendedConfig,
-  reactPlugin.configs.recommended,
-  tsPlugin.configs.recommended
-];
+const compat = new FlatCompat({ baseDirectory: __dirname });
+const sharedConfigs = compat.extends(
+  'eslint:recommended',
+  'plugin:react/recommended',
+  'plugin:@typescript-eslint/recommended'
+);
 
 export default [
   ...sharedConfigs,
