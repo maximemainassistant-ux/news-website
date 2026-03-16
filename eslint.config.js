@@ -5,7 +5,10 @@ import { FlatCompat } from '@eslint/eslintrc';
 import reactPlugin from 'eslint-plugin-react';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
-const compat = new FlatCompat({ baseDirectory: new URL('.', import.meta.url).pathname });
+const compat = new FlatCompat({
+  baseDirectory: new URL('.', import.meta.url).pathname,
+  recommendedConfig: 'eslint:recommended'
+});
 const sharedConfigs = compat.extends(
   'eslint:recommended',
   'plugin:react/recommended',
