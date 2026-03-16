@@ -18,6 +18,7 @@ const sharedConfigs = compat.extends(
 export default [
   ...sharedConfigs,
   {
+    ignores: ['.next/**'],
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       parser: tsParser,
