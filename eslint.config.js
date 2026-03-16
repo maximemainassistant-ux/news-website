@@ -1,10 +1,18 @@
 /**
  * ESLint configuration migrated to eslint.config.js (ESLint v9+ flat config format)
  */
+import eslintRecommendedConfig from 'eslint/conf/eslint-recommended';
 import reactPlugin from 'eslint-plugin-react';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
+const sharedConfigs = [
+  eslintRecommendedConfig,
+  reactPlugin.configs.recommended,
+  tsPlugin.configs.recommended
+];
+
 export default [
+  ...sharedConfigs,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
@@ -22,11 +30,6 @@ export default [
     settings: {
       react: { version: 'detect' }
     },
-    extends: [
-      'eslint:recommended',
-      'plugin:react/recommended',
-      'plugin:@typescript-eslint/recommended'
-    ],
     rules: {
       // project-specific rules go here
     }
