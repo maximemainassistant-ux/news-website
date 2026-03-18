@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
 
 // ── Portable Text renderers ──
 // Reset per-render via closure
-function createPortableTextComponents(category, layout) {
+function createPortableTextComponents(category) {
     let blockIndex = 0;
     const isTech = category === 'Tech';
 
@@ -59,6 +59,9 @@ function createPortableTextComponents(category, layout) {
                         {idx === 1 && <AdSlot size="inline" />}
                     </div>
                 );
+            },
+            list: ({ children }) => {
+                return <ul className={styles.list}>{children}</ul>;
             },
         },
         types: {
@@ -155,7 +158,7 @@ export default async function ArticlePage({ params }) {
         : null;
     const articleJsonLd = getArticleJsonLd({ ...article, imageUrl });
 
-    const portableTextComponents = createPortableTextComponents(article.category, layout);
+    const portableTextComponents = createPortableTextComponents(article.category);
 
     return (
         <div className={styles.page} data-category={categorySlug}>

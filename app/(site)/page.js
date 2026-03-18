@@ -1,8 +1,6 @@
-import { Suspense } from 'react';
 import Link from 'next/link';
-import { getAllArticles, getFeaturedArticle, getArticlesByCategory } from '@/lib/articles';
+import { getAllArticles, getFeaturedArticle } from '@/lib/articles';
 import { urlFor } from '@/lib/sanity.image';
-import { categories } from '@/lib/categories';
 import ArticleCard from '@/components/ArticleCard';
 import AdSlot from '@/components/AdSlot';
 import CategoryFilter from '@/components/CategoryFilter';
