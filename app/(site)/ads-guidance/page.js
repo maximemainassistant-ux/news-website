@@ -8,7 +8,7 @@ async function loadLocalGuidelines() {
     try {
         const filePath = path.join(process.cwd(), 'ads-guidelines.md');
         return await readFile(filePath, 'utf8');
-    } catch (error) {
+    } catch {
         return null;
     }
 }

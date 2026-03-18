@@ -110,7 +110,7 @@ export function KineticNavigation() {
                 item.addEventListener("mouseenter", onEnter);
                 item.addEventListener("mouseleave", onLeave);
 
-                (item as any)._cleanup = () => {
+                (item as HTMLElement & { _cleanup?: () => void })._cleanup = () => {
                     item.removeEventListener("mouseenter", onEnter);
                     item.removeEventListener("mouseleave", onLeave);
                 };
@@ -122,7 +122,10 @@ export function KineticNavigation() {
             if (containerRef.current) {
                 const items =
                     containerRef.current.querySelectorAll(".menu-list-item[data-shape]");
-                items.forEach((item: any) => item._cleanup && item._cleanup());
+                items.forEach((item: Element) => {
+                    const el = item as HTMLElement & { _cleanup?: () => void };
+                    if (el._cleanup) el._cleanup();
+                });
             }
         };
     }, []);

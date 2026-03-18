@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowLeft, Mail, Twitter, Linkedin, Globe } from 'lucide-react';
+import { ArrowLeft, Mail, Twitter, Linkedin } from 'lucide-react';
 import { getPersonJsonLd } from '@/lib/seo';
 import styles from './page.module.css';
 
