@@ -187,6 +187,8 @@ export default function Navbar() {
                                     {cat.label}
                                 </Link>
                             ))}
+                            <div className={styles.drawerDivider}></div>
+                            <Link href="/privacy-policy" className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Privacy Policy</Link>
                         </nav>
                     </div>
                 </>
